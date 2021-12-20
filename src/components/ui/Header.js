@@ -1,30 +1,30 @@
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Collapse from '@material-ui/core/Collapse';
-import Grow from '@material-ui/core/Grow';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import { useTheme } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Toolbar from '@material-ui/core/Toolbar';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import MenuIcon from '@material-ui/icons/Menu';
-import PersonIcon from '@material-ui/icons/Person';
-import { makeStyles } from '@material-ui/styles';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Collapse from '@mui/material/Collapse';
+import Grow from '@mui/material/Grow';
+import Hidden from '@mui/material/Hidden';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import { useTheme } from '@mui/material/styles';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Toolbar from '@mui/material/Toolbar';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import MenuIcon from '@mui/icons-material/Menu';
+import PersonIcon from '@mui/icons-material/Person';
+import { makeStyles } from '@mui/styles';
 import { signOut, useSession } from 'next-auth/client';
 import Router, { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -48,20 +48,20 @@ const useStyles = makeStyles((theme) => ({
 	toolbarMargin: {
 		...theme.mixins.toolbar,
 		marginBottom: '3em',
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			marginBottom: '2em',
 		},
-		[theme.breakpoints.down('xs')]: {
+		[theme.breakpoints.down('sm')]: {
 			marginBottom: '1.25em',
 		},
 	},
 	logo: {
 		height: '8em',
 		textTransform: 'none',
-		[theme.breakpoints.down('md')]: {
+		[theme.breakpoints.down('lg')]: {
 			height: '7em',
 		},
-		[theme.breakpoints.down('xs')]: {
+		[theme.breakpoints.down('sm')]: {
 			height: '5.5em',
 		},
 	},
@@ -286,7 +286,7 @@ const Header = (props) => {
 	const classes = useStyles(props);
 	const theme = useTheme();
 	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-	const matchesMd = useMediaQuery(theme.breakpoints.down('md'));
+	const matchesMd = useMediaQuery(theme.breakpoints.down('lg'));
 	const [drawerPersonOpen, setdrawerPersonOpen] = React.useState(true);
 
 	const [openDrawer, setOpenDrawer] = useState(false);
@@ -513,13 +513,14 @@ const Header = (props) => {
 				})}
 			</Tabs>
 			<IconButton
-				variant="contained"
-				color="secondary"
-				fontSize="large"
-				disabled={!loggedIn}
-				aria-owns={anchorEl ? 'profile-menu' : undefined}
-				aria-haspopup={anchorEl ? 'true' : undefined}
-				onMouseOver={(event) => handleProfileClick(event)}>
+                variant="contained"
+                color="secondary"
+                fontSize="large"
+                disabled={!loggedIn}
+                aria-owns={anchorEl ? 'profile-menu' : undefined}
+                aria-haspopup={anchorEl ? 'true' : undefined}
+                onMouseOver={(event) => handleProfileClick(event)}
+                size="large">
 				<PersonIcon fontSize="large" />
 			</IconButton>
 			<Popper
@@ -739,42 +740,41 @@ const Header = (props) => {
 				</List>
 			</SwipeableDrawer>
 			<IconButton
-				className={classes.drawerIconContainer}
-				onClick={() => setOpenDrawer(!openDrawer)}
-				disableRipple>
+                className={classes.drawerIconContainer}
+                onClick={() => setOpenDrawer(!openDrawer)}
+                disableRipple
+                size="large">
 				<MenuIcon className={classes.drawerIcon} />
 			</IconButton>
 		</>
 	);
 
-	return (
-		<>
-			<header>
-				<ElevationScroll>
-					<AppBar position="fixed" className={classes.appbar}>
-						<Toolbar disableGutters>
-							<Button
-								component={Link}
-								href="/"
-								disableRipple
-								onClick={() => props.setValue(0)}
-								className={classes.logoContainer}
-								style={{ textDecoration: 'none' }}>
-								<img
-									src="/images/Gyaku_ebi_tie.svg"
-									alt="Shibari Life logo"
-									className={classes.logo}
-								/>
-							</Button>
-							<Hidden smDown>{tabs}</Hidden>
-							<Hidden mdUp>{drawer}</Hidden>
-						</Toolbar>
-					</AppBar>
-				</ElevationScroll>
-				<div className={classes.toolbarMargin} />
-			</header>
-		</>
-	);
+	return <>
+        <header>
+            <ElevationScroll>
+                <AppBar position="fixed" className={classes.appbar}>
+                    <Toolbar disableGutters>
+                        <Button
+                            component={Link}
+                            href="/"
+                            disableRipple
+                            onClick={() => props.setValue(0)}
+                            className={classes.logoContainer}
+                            style={{ textDecoration: 'none' }}>
+                            <img
+                                src="/images/Gyaku_ebi_tie.svg"
+                                alt="Shibari Life logo"
+                                className={classes.logo}
+                            />
+                        </Button>
+                        <Hidden mdDown>{tabs}</Hidden>
+                        <Hidden mdUp>{drawer}</Hidden>
+                    </Toolbar>
+                </AppBar>
+            </ElevationScroll>
+            <div className={classes.toolbarMargin} />
+        </header>
+    </>;
 };
 
 Header.getInitialProps = async (ctx) => {

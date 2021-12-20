@@ -1,8 +1,9 @@
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import axios from 'axios';
 import { getSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
@@ -69,7 +70,7 @@ const StyledTab = withStyles((theme) => ({
 		color: theme.palette.common.blue,
 		fontFamily: 'Roboto',
 		fontWeight: theme.typography.fontWeightRegular,
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			fontSize: theme.typography.pxToRem(20),
 		},
 		[theme.breakpoints.up('sm')]: {

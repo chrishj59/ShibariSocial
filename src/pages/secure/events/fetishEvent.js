@@ -17,11 +17,13 @@ import {
   TableRow,
   TextField,
   Typography,
-} from '@material-ui/core';
-import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import axios from 'axios';
 import { format, formatDistanceToNow } from 'date-fns';
 import { convertToRaw } from 'draft-js';
@@ -40,7 +42,7 @@ import EventFriends from './event-friend';
 import EventNearBy from './event-nearby';
 import EventOrganising from './event-organising';
 
-// import Box from '@material-ui/core/Box';
+// import Box from '@mui/material/Box';
 const useStyles = makeStyles((theme) => ({
 	dialogRoot: {
 		margin: 0,
@@ -124,7 +126,7 @@ const StyledTab = withStyles((theme) => ({
 		color: theme.palette.common.blue,
 		fontFamily: 'Roboto',
 		fontWeight: theme.typography.fontWeightRegular,
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			fontSize: theme.typography.pxToRem(20),
 		},
 		[theme.breakpoints.up('sm')]: {

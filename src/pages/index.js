@@ -1,10 +1,11 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { signIn, useSession } from 'next-auth/client';
 import { useEffect } from 'react';
 import React, { Fragment } from 'react';
@@ -15,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
 		minHeight: '90vh',
 	},
 	signupContainer: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			marginBottom: '1em',
 			alignItems: 'center',
 		},
 		marginLeft: '1em',
 	},
 	signinContainer: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			alignItems: 'center',
 			marginRight: '1em',
 		},
@@ -50,8 +51,8 @@ const useStyles = makeStyles((theme) => ({
 const Index = () => {
 	const classes = useStyles();
 	const theme = useTheme();
-	const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
-	const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
+	const matchesSM = useMediaQuery(theme.breakpoints.down('md'));
+	const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 	// const dispatch = useDispatch();
 	// useEffect(() => {
 	// 	dispatch(startClock());

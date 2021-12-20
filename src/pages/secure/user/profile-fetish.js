@@ -19,16 +19,17 @@ import {
   Snackbar,
   TextField,
   Typography,
-} from '@material-ui/core';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import { Alert, AlertTitle } from '@material-ui/lab';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+} from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import { Alert, AlertTitle } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 import React, { useEffect, useState } from 'react';
 import useRequest from 'src/utils/clientAxiosRequest';
 
@@ -247,9 +248,10 @@ const ProfileFetish = (props) => {
 							<ListItemText primary={el.fetish.name} />
 							<ListItemSecondaryAction>
 								<IconButton
-									onClick={(e) => deleteProfileFetish(e, el)}
-									edge="end"
-									aria-label="delete">
+                                    onClick={(e) => deleteProfileFetish(e, el)}
+                                    edge="end"
+                                    aria-label="delete"
+                                    size="large">
 									<DeleteForeverIcon />
 								</IconButton>
 							</ListItemSecondaryAction>
@@ -439,10 +441,10 @@ const ProfileFetish = (props) => {
 		// const { index, style } = props;
 		console.log('myGiving', myGiving);
 		return (
-			<Autocomplete
+            <Autocomplete
 				options={fetishes}
 				getOptionLabel={(option) => option.name}
-				getOptionSelected={(option) => {
+				isOptionEqualToValue={(option) => {
 					if (Object.keys(option).length !== 0) {
 						return option;
 					} else return '';
@@ -459,7 +461,7 @@ const ProfileFetish = (props) => {
 					/>
 				)}
 			/>
-		);
+        );
 	};
 
 	const handleCloseFetishDlg = () => {

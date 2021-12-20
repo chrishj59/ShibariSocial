@@ -1,5 +1,6 @@
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	radioGroup: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			marginTop: '2em',
 		},
 	},
@@ -177,7 +178,7 @@ const useStyles = makeStyles((theme) => ({
 function EventOrganising(props) {
 	const classes = useStyles();
 	const theme = useTheme();
-	const matchesSm = useMediaQuery(theme.breakpoints.down('sm'));
+	const matchesSm = useMediaQuery(theme.breakpoints.down('md'));
 
 	const { ownEvents, session } = props;
 	const [activities, setActivities] = useState([]);

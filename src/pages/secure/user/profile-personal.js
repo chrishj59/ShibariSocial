@@ -1,21 +1,22 @@
 import 'date-fns';
 
-import { Slide, Snackbar } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import Grid from '@material-ui/core/Grid';
-import MenuItem from '@material-ui/core/MenuItem';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Slide, Snackbar } from '@mui/material';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import Grid from '@mui/material/Grid';
+import MenuItem from '@mui/material/MenuItem';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { Alert, AlertTitle } from '@mui/material';
 import DatePicker from '@mui/lab/DatePicker';
 import { useEffect, useMemo } from 'react';
 import { useState } from 'react';
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	radioGroup: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			marginTop: '2em',
 		},
 	},
@@ -117,7 +118,7 @@ function ProfilePersonal(props) {
 
 	const classes = useStyles();
 	const theme = useTheme();
-	const matchesSm = useMediaQuery(theme.breakpoints.down('sm'));
+	const matchesSm = useMediaQuery(theme.breakpoints.down('md'));
 	const [userDetails, setUserDetails] = useState({});
 	const [alertTitle, setAlertTitle] = useState('');
 	const [submitError, setSubmitError] = useState(false);

@@ -1,18 +1,19 @@
-import { Snackbar } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Slide from '@material-ui/core/Slide';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Alert, AlertTitle } from '@material-ui/lab';
+import { Snackbar } from '@mui/material';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Slide from '@mui/material/Slide';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { Alert, AlertTitle } from '@mui/material';
 import { csrfToken, getSession, providers, signIn } from 'next-auth/client';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -141,7 +142,7 @@ function Signin({ providers, csrfToken }) {
 		return <Slide {...props} direction="right" />;
 	};
 	return (
-		<Grid container direction="column" justifyContent="center">
+        <Grid container direction="column" justifyContent="center">
 			<Grid item style={{ textAlign: 'center' }}>
 				<Typography variant="h2" gutterBottom>
 					<Grid item style={{ textAlign: 'center' }}>
@@ -224,9 +225,10 @@ function Signin({ providers, csrfToken }) {
 													endAdornment: (
 														<InputAdornment position="end">
 															<IconButton
-																aria-label="toggle password visibility"
-																onClick={handleShowPassword('showPassword')}
-																onMouseDown={handleMouseDownPassword}>
+                                                                aria-label="toggle password visibility"
+                                                                onClick={handleShowPassword('showPassword')}
+                                                                onMouseDown={handleMouseDownPassword}
+                                                                size="large">
 																{values.showPassword ? (
 																	<Visibility />
 																) : (
@@ -288,7 +290,7 @@ function Signin({ providers, csrfToken }) {
 				</Grid>
 			</Grid>
 		</Grid>
-	);
+    );
 }
 
 Signin.getInitialProps = async (context) => {

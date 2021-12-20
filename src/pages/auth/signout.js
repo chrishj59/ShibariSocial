@@ -1,5 +1,6 @@
-import { Button, Card, CardContent, CardHeader, Grid, Typography } from '@material-ui/core';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Button, Card, CardContent, CardHeader, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
 
@@ -8,14 +9,14 @@ const useStyles = makeStyles((theme) => ({
 		minHeight: '90vh',
 	},
 	signupContainer: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			marginBottom: '1em',
 			alignItems: 'center',
 		},
 		marginLeft: '1em',
 	},
 	signinContainer: {
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('md')]: {
 			alignItems: 'center',
 			marginRight: '1em',
 		},
