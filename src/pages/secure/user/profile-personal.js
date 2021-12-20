@@ -1,6 +1,5 @@
 import 'date-fns';
 
-import DateFnsUtils from '@date-io/date-fns';
 import { Slide, Snackbar } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -17,12 +16,13 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { Alert, AlertTitle } from '@material-ui/lab';
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DatePicker from '@mui/lab/DatePicker';
 import { useEffect, useMemo } from 'react';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import useRequest from 'src/utils/clientAxiosRequest';
 
+//import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 //import 'react-phone-input-2/lib/material.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -433,20 +433,21 @@ function ProfilePersonal(props) {
 					control={control}
 					default={new Date()}
 					render={({ field: { onChange, value }, fieldState: { error } }) => (
-						<MuiPickersUtilsProvider utils={DateFnsUtils}>
-							<KeyboardDatePicker
-								className={classes.datePicker}
-								margin="normal"
-								id="dob-dialog"
-								label="Date of Birth"
-								format="dd/MM/yyyy"
-								value={value}
-								onChange={onChange}
-								KeyboardButtonProps={{
-									'aria-label': 'change date',
-								}}
-							/>
-						</MuiPickersUtilsProvider>
+						<DatePicker
+							className={classes.datePicker}
+							margin="normal"
+							id="dob-dialog"
+							//label="Date of Birth"
+							format="dd/MM/yyyy"
+							value={value}
+							onChange={onChange}
+							KeyboardButtonProps={{
+								'aria-label': 'change date',
+							}}
+							renderInput={(props) => (
+								<TextField label="Date of birth" helperText="Something" />
+							)}
+						/>
 					)}
 				/>
 			</Grid>

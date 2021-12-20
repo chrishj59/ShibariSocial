@@ -11,6 +11,7 @@ const shibariGreen = '#88F436';
 const shibariOrange = '#F4A236';
 
 export default createTheme({
+	//export default createTheme({
 	palette: {
 		common: {
 			blue: shibariBlue,
